@@ -24,5 +24,5 @@ public class Channel
     public string? Topic { get; set; }
 
     public int CampaignId { get; set; }
-    public required Campaign Campaign { get; set; }
+    public Campaign Campaign { get; set; }
 }

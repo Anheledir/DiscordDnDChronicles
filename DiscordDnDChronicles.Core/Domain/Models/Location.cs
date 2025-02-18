@@ -18,7 +18,7 @@ public class Location
     public int CampaignId { get; set; }
 
     // Navigation property to the campaign
-    public required Campaign Campaign { get; set; }
+    public Campaign Campaign { get; set; }
 
     // Navigation property to maps associated with this location.
     // The Map model should be defined separately if needed.
