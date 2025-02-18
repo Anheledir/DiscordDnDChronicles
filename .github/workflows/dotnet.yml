@@ -1,0 +1,38 @@
+﻿name: .NET CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run tests
+      run: dotnet test --no-build --configuration Release --verbosity normal
+
+    - name: Publish API project
+      run: dotnet publish DiscordDnDChronicles.API/DiscordDnDChronicles.API.csproj --configuration Release --output ./publish
+
+    - name: Upload publish artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: published-api
+        path: ./publish
