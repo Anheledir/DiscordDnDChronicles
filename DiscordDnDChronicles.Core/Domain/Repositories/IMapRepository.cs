@@ -1,5 +1,5 @@
 ﻿namespace DiscordDnDChronicles.Core.Domain.Repositories;
 
-public interface IChannelRepository
+public interface IMapRepository
 {
 }

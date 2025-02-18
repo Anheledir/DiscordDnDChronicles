@@ -1,5 +1,5 @@
 ﻿namespace DiscordDnDChronicles.Core.Domain.Repositories;
 
-internal class IMessageRepository
+public interface IMessageRepository
 {
 }
